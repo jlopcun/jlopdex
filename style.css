@@ -1,0 +1,197 @@
+:root{
+  --PokemonRed:#FB1B1B ;
+  --PokemonBlack:#000;
+  --pokemonWhite:#fff;
+  --pokemonGrey:#DFDFDF ;
+}
+
+*,*::after,*::before{
+  box-sizing: border-box;  
+}
+
+body{
+    width:100vw;
+    min-height:100vh;
+    margin:0;
+    overflow-x:hidden;
+    background-image:url('assets/backgroundPattern.jpg');
+    background-repeat:repeat;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.bodyStop{
+  overflow:hidden;
+}
+.favIcon{
+  position:relative;
+  display:inline-block;
+  width:2rem;
+  margin:4rem;
+  cursor:pointer;
+}
+.favIcon__img{
+  width:100%;
+}
+.favIcon::after{
+  content:'favourites';
+  position:absolute;
+  top:0;
+  right:-5rem;
+  display:inline-block;
+  width:5rem;
+  background-color:var(--pokemonGrey);
+  border-radius:10px;
+  opacity:0;
+  text-align:center;
+  transition:opacity .3s;
+}
+.favIcon:hover::after{
+  opacity:1;
+}
+.searchPokemonForm{
+  width:100%;
+  display:inline-flex;
+  justify-content:center;
+  align-items: center;
+  flex-flow:column wrap;
+  margin:10rem auto;
+  font-family: 'Josefin Sans', sans-serif;
+}
+.searchPokemonForm__input{
+  width:max(50%,20rem);
+  padding:1rem;
+  border:none;
+  border-radius:10px;
+  outline:none;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size:1rem;
+}
+.searchPokemonForm__submitbtn{
+    padding:1rem 2rem;
+    margin-top:1rem;
+    margin-left:50%;
+    transform:translateX(-50%);
+    border:none;
+    border-radius:10px;
+    background-color:var(--PokemonRed);
+    font-family: 'Josefin Sans', sans-serif;
+    cursor:pointer;
+}
+.searchPokemonForm__submitbtn:hover,.Error__button:hover{
+  opacity:.7;
+}
+.Error{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:50%;
+  display:none;
+  padding:1rem;
+  background-color:var(--pokemonWhite);
+  border-radius:10px;
+  text-align:center;
+  z-index:20;
+}
+.Error__button{
+  padding:1rem 2rem;
+  border:none;
+  border-radius:10px;
+  background-color:var(--PokemonRed);
+  cursor:pointer;
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+.ErrorSolape{
+  position:absolute;
+  top:0;
+  left:0;
+  display:none;
+  width:100vw;
+  height:100vh;
+  background-color:rgba(0 0 0 /.5);
+  z-index:10;
+}
+.ErrorShow{
+  display:inline-block;
+}
+.pokemonContainer{
+  width:100%;
+  max-width:100vw;
+  display:inline-flex;
+  justify-content:center;
+  align-items:flex-start;
+  flex-flow:row wrap;
+  gap:1rem;
+}
+.pokemonCard{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow:column wrap;
+  width:max(30%,20rem);
+  margin-bottom:5rem;
+  padding:3rem;
+  box-shadow:0 0 10px rgba(0 0 0 /.5);
+  border-radius:20px;
+  background-color: rgba(0 0 0 /.5);
+  color:var(--pokemonWhite);
+  font-size:1.3em;
+}
+.pokemonCard__addToFav{
+  position:relative;
+  width:2rem;
+  align-self:flex-end;
+  cursor:pointer;
+}
+.pokemonCard__addToFav::after{
+  content:' add to favourites';
+  position:absolute;
+  top:0;
+  right:-8rem;
+  display:inline-block;
+  background-color:var(--pokemonGrey);
+  border-radius:10px;
+  opacity:0;
+  text-align:center;
+  font-size:.8em;
+  transition:opacity .3s;
+}
+.pokemonCard__addToFav:hover::after{
+  opacity:1;
+}
+.pokemonCard__sprite{
+  width:max(30%,10rem);
+}
+.pokemonCard__name{
+    border-right:5px outset var(--PokemonBlack);
+    border-bottom:5px inset var(--PokemonBlack);
+}
+.pokemonCard__info--moves{
+  height:10rem;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+}
+.pokemonCard__info--moves.active{
+  height:auto;
+}
+.pokemonCard__info--moves__li{
+  padding:10px;
+  list-style:none;
+}
+.pokemonCard__info--arrow{
+  display:inline;
+  width:1.5rem;
+  filter:invert(1);
+  cursor:pointer;
+  transition:transform .3s;
+}
+.pokemonCard__info--arrow.active{
+  transform:rotate(180deg);
+}
+.pokemonCard__info--moveTitle{
+  margin:0;
+  display:flex;
+  justify-content:flex-start;
+  align-items: center;
+}

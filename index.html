@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <title>jlopdex</title>
+</head>
+<body>
+    <div class="favIcon" id="favIcon">
+        <img src="assets/star-svgrepo-com(active).svg" alt="favourites icon" class="favIcon__img">
+    </div>
+    <div class="ErrorSolape"></div>
+    <div class="Error" id="Error">
+        <h2 class="Error__msg"></h2>
+        <button class="Error__button">Ok</button>
+    </div>
+    <form class="searchPokemonForm" id="searchPokemonForm">
+        <input type="text" placeholder="Enter a pokemon name or id..." required class="searchPokemonForm__input" autocomplete="off">
+        <input type="submit" class="searchPokemonForm__submitbtn" name="submitBtn" value="search">
+    </form>
+    <div class="pokemonContainer" id="pokemonContainer"></div>
+    <template class="pokemonCardTemplate" id="pokemonCardTemplate">
+        <article class="pokemonCard">
+            <div class="pokemonCard__addToFav">
+                <img src="assets/star-svgrepo-com.svg" alt="favourites icon" class="favIcon__img">
+            </div>
+            <img src="#" alt="pokemonSprite" class="pokemonCard__sprite">
+            <h2 class="pokemonCard__name"></h2>
+            <div class="pokemonCard__info">
+                <p class="pokemonCard__info--id"></p>
+                <p class="pokemonCard__info--height"></p>
+                <p class="pokemonCard__info--weight"></p>
+                <p class="pokemonCard__info--type"></p>
+                <h3 class="pokemonCard__info--moveTitle">Moves:  <img src="assets/down-arrow.png" alt="arrow" class="pokemonCard__info--arrow"></h3>
+                
+                <ul class="pokemonCard__info--moves">
+                </ul>
+            </div>
+        </article>
+    </template>
+    <script src="main.js"></script>
+</body>
+</html>
