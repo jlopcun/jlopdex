@@ -22,6 +22,7 @@ const getPokemon = async (pokemon) =>{
     getStat('height').textContent = `height:${json.height/10}m`;
     getStat('weight').textContent = `weight:${json.weight/10}kg`;
     getStat('type').textContent = `types: ${json.types.map(x=>x.type.name).join(' ')}`;
+    
     const moves = json.moves.map(x=>x.move.name);
     const fragmentMoves = document.createDocumentFragment();
     moves.forEach(move=>{
@@ -32,9 +33,24 @@ const getPokemon = async (pokemon) =>{
     })
     getStat('moves').append(fragmentMoves);
     
+    const stats = json.stats.map(x=>{
+        return {
+            name:x.stat.name,
+            value:x['base_stat']
+        }
+    })
+    const fragmentStats = document.createDocumentFragment();
+    stats.forEach(stat=>{
+        const moveLi = document.createElement('li');
+        moveLi.classList.add('pokemonCard__info--stats__li');
+        moveLi.textContent = `${stat.name}:${stat.value}`;
+        fragmentStats.append(moveLi);
+    })
+    getStat('stats').append(fragmentStats);
+
     fragmentContent.append(pokemonCardTemplateClone);
     $PokemonContainer.append(fragmentContent);
-    const $movesOpener = pokemonCard.querySelector(".pokemonCard__info--arrow");
+    const $movesOpener = pokemonCard.querySelector(".pokemonCard__info--arrow__moves");
     $movesOpener.addEventListener('click',()=>{
         $movesOpener.classList.toggle('active');
         getStat('moves').classList.toggle('active');
@@ -98,4 +114,9 @@ $favIcon.addEventListener('click',async ()=>{
             getPokemon(pokemon);
         })
     }
+})
+
+const $cleanBtn = $id('cleanBtn');
+$cleanBtn.addEventListener('click',()=>{
+    $PokemonContainer.textContent="";
 })

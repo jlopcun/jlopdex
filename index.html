@@ -24,6 +24,7 @@
         <input type="submit" class="searchPokemonForm__submitbtn" name="submitBtn" value="search">
     </form>
     <div class="pokemonContainer" id="pokemonContainer"></div>
+    <button class="cleanbtn" id="cleanBtn">clean</button>
     <template class="pokemonCardTemplate" id="pokemonCardTemplate">
         <article class="pokemonCard">
             <div class="pokemonCard__addToFav">
@@ -36,10 +37,13 @@
                 <p class="pokemonCard__info--height"></p>
                 <p class="pokemonCard__info--weight"></p>
                 <p class="pokemonCard__info--type"></p>
-                <h3 class="pokemonCard__info--moveTitle">Moves:  <img src="assets/down-arrow.png" alt="arrow" class="pokemonCard__info--arrow"></h3>
-                
-                <ul class="pokemonCard__info--moves">
-                </ul>
+                <div class="Characteristics">
+                    <h3 class="pokemonCard__info--moveTitle">Base stats:</h3>
+                    <ul class="pokemonCard__info--stats"></ul>
+                    <h3 class="pokemonCard__info--moveTitle">Moves:  <img src="assets/down-arrow.png" alt="arrow" class="pokemonCard__info--arrow__moves"></h3>
+                    <ul class="pokemonCard__info--moves">
+                    </ul>
+                </div>
             </div>
         </article>
     </template>

@@ -32,12 +32,13 @@ body{
   width:100%;
 }
 .favIcon::after{
-  content:'favourites';
+  content:'load favourites';
   position:absolute;
   top:0;
-  right:-5rem;
+  right:-8rem;
   display:inline-block;
-  width:5rem;
+  width:auto;
+  padding:.3rem;
   background-color:var(--pokemonGrey);
   border-radius:10px;
   opacity:0;
@@ -136,6 +137,7 @@ body{
   background-color: rgba(0 0 0 /.5);
   color:var(--pokemonWhite);
   font-size:1.3em;
+  text-align: center;
 }
 .pokemonCard__addToFav{
   position:relative;
@@ -166,27 +168,38 @@ body{
     border-right:5px outset var(--PokemonBlack);
     border-bottom:5px inset var(--PokemonBlack);
 }
-.pokemonCard__info--moves{
+.Characteristics{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  flex-flow:row wrap;
+  gap:.5rem;
+}
+.pokemonCard__info--moves,.pokemonCard__info--stats{
   height:10rem;
   padding:0;
   margin:0;
   overflow:hidden;
 }
+.pokemonCard__info--stats{
+  height:auto;
+}
 .pokemonCard__info--moves.active{
   height:auto;
 }
-.pokemonCard__info--moves__li{
+.pokemonCard__info--moves__li,.pokemonCard__info--stats__li{
   padding:10px;
   list-style:none;
 }
-.pokemonCard__info--arrow{
+.pokemonCard__info--arrow__moves{
   display:inline;
   width:1.5rem;
   filter:invert(1);
   cursor:pointer;
   transition:transform .3s;
 }
-.pokemonCard__info--arrow.active{
+.pokemonCard__info--arrow__moves.active{
   transform:rotate(180deg);
 }
 .pokemonCard__info--moveTitle{
@@ -194,4 +207,16 @@ body{
   display:flex;
   justify-content:flex-start;
   align-items: center;
+}
+
+.cleanbtn{
+  display:block;
+  width:auto;
+  margin:2rem auto;
+  padding:1rem 2rem;
+  border:0;
+  border-radius:10px;
+  background-color:var(--PokemonRed);
+  font-family: 'Josefin Sans', sans-serif;
+  cursor:pointer;
 }
